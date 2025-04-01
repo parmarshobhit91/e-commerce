@@ -16,8 +16,10 @@ connectDB();
 app.use(express.json());
 
 const authRoute = require("./routes/authRoutes");
+const productRoute = require("./routes/productRoutes");
 
 app.use("/user", authRoute);
+app.use("/products", productRoute);
 
 
 
