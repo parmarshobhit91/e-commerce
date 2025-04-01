@@ -6,13 +6,22 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors(
-    origin = "http://localhost:5173/"
-))
-app.use(express.json());
-
+app.use(cors({
+    origin: "http://localhost:5173", // No trailing slash
+    credentials: true, // If you need cookies/auth headers
+}));
 
 connectDB();
+
+app.use(express.json());
+
+const authRoute = require("./routes/authRoutes");
+
+app.use("/user", authRoute);
+
+
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
