@@ -17,9 +17,11 @@ app.use(express.json());
 
 const authRoute = require("./routes/authRoutes");
 const productRoute = require("./routes/productRoutes");
+const orderRoute = require("./routes/orderRoutes");
 
 app.use("/user", authRoute);
 app.use("/products", productRoute);
+app.use("/orders", orderRoute);
 
 
 
